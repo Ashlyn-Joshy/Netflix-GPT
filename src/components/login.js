@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 
-const login = () => {
+const Login = () => {
+  const [isLogInForm, setIsLogInForm] = useState(true);
+
+  const signUp = () => {
+    setIsLogInForm(!isLogInForm);
+  };
+
   return (
     <div>
       <Header />
@@ -12,17 +18,34 @@ const login = () => {
         />
       </div>
       <form className="w-3/12 absolute text-white bg-black my-48 mx-auto left-0 right-0 p-12 opacity-80">
-        <h1 className="text-3xl font-bold py-5">Sign In</h1>
+        <h1 className="text-3xl font-bold py-5">
+          {isLogInForm ? "Sign In" : "Sign Up"}
+        </h1>
+
+        {!isLogInForm && (
+          <input type="text" className="w-full my-2 p-2" placeholder="Name" />
+        )}
+
         <input className="w-full my-2 p-2" type="email" placeholder="Email" />
+
         <input
           className="w-full my-2 p-2"
           type="password"
           placeholder="password"
         />
-        <button className="w-full p-2 my-4 bg-red-700">Sign In</button>
+
+        <button className="w-full p-2 my-4 bg-red-700">
+          {isLogInForm ? "Sign In" : "Sign Up"}
+        </button>
+
+        <p className="my-2 cursor-pointer" onClick={signUp}>
+          {isLogInForm
+            ? "New to Netflix? Sign up now."
+            : "Already registered? Sign In Now."}
+        </p>
       </form>
     </div>
   );
 };
 
-export default login;
+export default Login;
