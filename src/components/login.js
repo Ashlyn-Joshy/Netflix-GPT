@@ -1,13 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Header from "./Header";
+import { signInValidation, signUpValidation } from "../utils/validation";
 
 const Login = () => {
   const [isLogInForm, setIsLogInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState();
 
   const signUp = () => {
     setIsLogInForm(!isLogInForm);
   };
 
+  const email = useRef(null);
+  const password = useRef(null);
+  const name = useRef(null);
+
+  const formSubmit = () => {
+    const msg = signInValidation(email.current.value, password.current.value);
+    setErrorMessage(msg);
+    const message = signUpValidation(
+      name.current.value,
+      email.current.value,
+      password.current.value
+    );
+    setErrorMessage(message);
+  };
   return (
     <div>
       <Header />
@@ -17,24 +33,40 @@ const Login = () => {
           alt="bodyImage"
         />
       </div>
-      <form className="w-3/12 absolute text-white bg-black my-48 mx-auto left-0 right-0 p-12 opacity-80">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="w-3/12 absolute text-white bg-black my-48 mx-auto left-0 right-0 p-12 opacity-80"
+      >
         <h1 className="text-3xl font-bold py-5">
           {isLogInForm ? "Sign In" : "Sign Up"}
         </h1>
 
         {!isLogInForm && (
-          <input type="text" className="w-full my-2 p-2" placeholder="Name" />
+          <input
+            type="text"
+            className="w-full my-2 p-2 text-black"
+            placeholder="Name"
+            ref={name}
+          />
         )}
 
-        <input className="w-full my-2 p-2" type="email" placeholder="Email" />
-
         <input
-          className="w-full my-2 p-2"
-          type="password"
-          placeholder="password"
+          className="w-full my-2 p-2 text-black"
+          type="email"
+          placeholder="Email"
+          ref={email}
         />
 
-        <button className="w-full p-2 my-4 bg-red-700">
+        <input
+          className="w-full my-2 p-2 text-black"
+          type="password"
+          placeholder="password"
+          ref={password}
+        />
+
+        <p className="text-red-700 font-bold">{errorMessage}</p>
+
+        <button className="w-full p-2 my-4 bg-red-700" onClick={formSubmit}>
           {isLogInForm ? "Sign In" : "Sign Up"}
         </button>
 
