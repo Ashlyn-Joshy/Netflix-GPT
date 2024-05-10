@@ -1,5 +1,9 @@
 # Netflix GPT
 
+# Features
+
+- Firebase Authentication
+
 # outline of the app
 
     -Navbar

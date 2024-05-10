@@ -4,12 +4,15 @@ import { checkValidation } from "../utils/validation";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isLogInForm, setIsLogInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState();
+  const navigate = useNavigate();
 
   const signUp = () => {
     setIsLogInForm(!isLogInForm);
@@ -36,6 +39,26 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+
+          updateProfile(auth.currentUser, {
+            displayName: email.current.value,
+            photoURL:
+              "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png",
+          })
+            .then(() => {
+              // Profile updated!
+              console.log(
+                "when profile updated then navigate to the browser page of netflix gpt"
+              );
+              navigate("/browse");
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              setErrorMessage(error.message);
+              // ...
+            });
+
           // ...
         })
         .catch((error) => {
@@ -51,6 +74,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+          navigate("/browse");
           // ...
         })
         .catch((error) => {
