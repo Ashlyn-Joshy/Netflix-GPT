@@ -6,3 +6,13 @@ export const User_Logo =
 
 export const Body_Image =
   "https://assets.nflxext.com/ffe/siteui/vlv3/4d7bb476-6d8b-4c49-a8c3-7739fddd135c/deecf71d-7a47-4739-9e1a-31b6b0d55be7/IN-en-20240429-popsignuptwoweeks-perspective_alpha_website_large.jpg";
+
+export const api_url =
+  "https://streaming-availability.p.rapidapi.com/shows/search/filters?country=us&show_type=movie&series_granularity=show&order_by=original_title&output_language=en&order_direction=asc&genres_relation=and";
+export const api_options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "976055a894msh5445c8e4538be90p164a17jsn0413a0714d3c",
+    "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
+  },
+};

@@ -50,7 +50,7 @@ const Header = () => {
       <img className="w-44" src={Netflix_logo} alt="logo" />
       {user && (
         <div className="flex">
-          <img className="w-12 h-12" src={user.photoURL} alt="userImg" />
+          <img className="w-12 h-12 my-4" src={user.photoURL} alt="userImg" />
           <button onClick={singOut} className="bg-red-600 p-2 rounded m-4">
             Sign Out
           </button>
