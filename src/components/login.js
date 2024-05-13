@@ -9,6 +9,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/userSlice";
+import { User_Logo, Body_Image } from "../utils/constants";
 
 const Login = () => {
   const [isLogInForm, setIsLogInForm] = useState(true);
@@ -43,8 +44,7 @@ const Login = () => {
 
           updateProfile(user, {
             displayName: email.current.value,
-            photoURL:
-              "https://i.pinimg.com/564x/5b/50/e7/5b50e75d07c726d36f397f6359098f58.jpg",
+            photoURL: User_Logo,
           })
             .then(() => {
               // Profile updated! with display name and photo url
@@ -93,10 +93,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/4d7bb476-6d8b-4c49-a8c3-7739fddd135c/deecf71d-7a47-4739-9e1a-31b6b0d55be7/IN-en-20240429-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="bodyImage"
-        />
+        <img src={Body_Image} alt="bodyImage" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}

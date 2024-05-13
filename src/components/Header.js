@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../redux/userSlice";
+import { Netflix_logo } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -46,14 +47,10 @@ const Header = () => {
 
   return (
     <div className="bg-gradient-to-b from-black px-32 py-3 absolute z-10 w-full flex justify-between text-white">
-      <img
-        className="w-44"
-        src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-        alt="logo"
-      />
+      <img className="w-44" src={Netflix_logo} alt="logo" />
       {user && (
         <div className="flex">
-          <img className="w-20" src={user.photoURL} alt="userImg" />
+          <img className="w-12 h-12" src={user.photoURL} alt="userImg" />
           <button onClick={singOut} className="bg-red-600 p-2 rounded m-4">
             Sign Out
           </button>
