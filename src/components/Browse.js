@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
 import Header from "./Header";
 import useNowPlaying from "../Hooks/useNowPlaying";
+import HeroMovie from "./HeroMovie";
+import SuggestionMovies from "./SuggestionMovies";
 
 const Browse = () => {
   useNowPlaying();
 
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <HeroMovie />
+      <SuggestionMovies />
+    </>
   );
 };
 
