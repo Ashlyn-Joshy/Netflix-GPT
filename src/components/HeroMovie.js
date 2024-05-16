@@ -1,20 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import VideoTitle from "./VideoTitle";
-import VideoBackground from "./VideoBackground";
+import BannerBackground from "./BannerBackground";
 
 const HeroMovie = () => {
   const movies = useSelector((store) => store.movies?.nowPlaying);
   if (!movies) return;
   const mainMovie = movies[0];
-  console.log(mainMovie);
 
-  const { originalTitle, overview } = mainMovie;
+  const { originalTitle, overview, imageSet } = mainMovie;
 
   return (
     <div>
       <VideoTitle title={originalTitle} overview={overview} />
-      <VideoBackground />
+      <BannerBackground banner={imageSet.verticalPoster.w240} />
     </div>
   );
 };

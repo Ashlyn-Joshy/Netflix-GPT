@@ -9,7 +9,6 @@ const useNowPlaying = () => {
   const getShowByFilter = async () => {
     const response = await fetch(api_url, api_options);
     const data = await response.json();
-    console.log(data.shows);
     dispatch(addNowPlayingMovie(data.shows));
   };
 
