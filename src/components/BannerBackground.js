@@ -3,7 +3,11 @@ import React from "react";
 const BannerBackground = ({ banner }) => {
   return (
     <>
-      <img src={banner} alt="heroMovieBanner" />
+      <img
+        className="w-screen aspect-video"
+        src={banner}
+        alt="heroMovieBanner"
+      />
     </>
   );
 };

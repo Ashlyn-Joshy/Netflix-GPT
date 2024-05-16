@@ -13,7 +13,7 @@ const HeroMovie = () => {
   return (
     <div>
       <VideoTitle title={originalTitle} overview={overview} />
-      <BannerBackground banner={imageSet.verticalPoster.w240} />
+      <BannerBackground banner={imageSet.horizontalPoster.w720} />
     </div>
   );
 };
