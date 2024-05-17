@@ -3,15 +3,24 @@ import Header from "./Header";
 import useNowPlaying from "../Hooks/useNowPlaying";
 import HeroMovie from "./HeroMovie";
 import SuggestionMovies from "./SuggestionMovies";
+import GptSearch from "./GptSearch";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
   useNowPlaying();
+  const gptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   return (
     <>
       <Header />
-      <HeroMovie />
-      <SuggestionMovies />
+      {gptSearch ? (
+        <GptSearch />
+      ) : (
+        <>
+          <HeroMovie />
+          <SuggestionMovies />
+        </>
+      )}
     </>
   );
 };

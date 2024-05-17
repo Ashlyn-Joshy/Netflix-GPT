@@ -4,20 +4,6 @@
 
 - Firebase Authentication
 - movie data from api
+- implementation of GPT
 
 # outline of the app
-
-        - MovieSuggestions
-            - MovieLists
-                -movie card
-
-        movie sections
-            -now palying
-            -popular
-            -Action & Adventure
-            -Anime
-            -Classic
-            -Comedies
-            -Documentaries
-            -Dramas
-            -Horror

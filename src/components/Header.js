@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../redux/userSlice";
 import { Netflix_logo } from "../utils/constants";
+import { toggleGptSearchView } from "../redux/GptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -19,6 +20,10 @@ const Header = () => {
       .catch((error) => {
         // An error happened.
       });
+  };
+
+  const gptSearch = () => {
+    dispatch(toggleGptSearchView());
   };
 
   useEffect(() => {
@@ -50,6 +55,9 @@ const Header = () => {
       <img className="w-44" src={Netflix_logo} alt="logo" />
       {user && (
         <div className="flex">
+          <button className="p-2 m-4 rounded bg-red-600 " onClick={gptSearch}>
+            GPT Search
+          </button>
           <img className="w-12 h-12 my-4" src={user.photoURL} alt="userImg" />
           <button onClick={singOut} className="bg-red-600 p-2 rounded m-4">
             Sign Out
