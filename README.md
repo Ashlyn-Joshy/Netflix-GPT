@@ -7,9 +7,17 @@
 
 # outline of the app
 
-        - Main Movie
-            - Tailer in Background
-            - Title & Description
         - MovieSuggestions
             - MovieLists
                 -movie card
+
+        movie sections
+            -now palying
+            -popular
+            -Action & Adventure
+            -Anime
+            -Classic
+            -Comedies
+            -Documentaries
+            -Dramas
+            -Horror
