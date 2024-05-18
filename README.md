@@ -7,3 +7,7 @@
 - implementation of GPT
 
 # outline of the app
+
+    gpt page
+        -gpt search bar
+        -gpt movie suggestions
