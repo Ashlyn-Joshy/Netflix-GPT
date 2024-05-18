@@ -16,3 +16,10 @@ export const api_options = {
     "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
   },
 };
+
+export const supported_Languages = [
+  { identifier: "english", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "malayalam", name: "Malayalam" },
+  { identifier: "spanish", name: "Spanish" },
+];
