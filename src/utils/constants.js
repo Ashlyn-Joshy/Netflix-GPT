@@ -12,7 +12,7 @@ export const api_url =
 export const api_options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "976055a894msh5445c8e4538be90p164a17jsn0413a0714d3c",
+    "X-RapidAPI-Key": process.env.REACT_APP_X_RapidAPI_Key,
     "X-RapidAPI-Host": "streaming-availability.p.rapidapi.com",
   },
 };

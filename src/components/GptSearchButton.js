@@ -11,7 +11,7 @@ const GptSearchButton = () => {
         <input
           type="text"
           placeholder={lang[languageKey].gptSearchPlaceholder}
-          className="col-span-9 p-2"
+          className="col-span-9 p-2 text-black"
         />
         <button className="p-2 col-span-3 bg-red-600 rounded">
           {lang[languageKey].search}
